@@ -2,9 +2,14 @@
 
 function addStepData(){
     let date = document.querySelector('#dateField');
-    let steps = document.querySelector('#stepField');
+    let bevetel = document.querySelector('#osszegbevetel');
+    let kiadas = document.querySelector('#osszegkiadas');
+    let valasszon = document.querySelector('#valasszon');
+    let ruhazat =document.querySelector('#ruhazat');
+    let elelmiszer = document.querySelector('#elelmiszer');
+    let szolgaltatas = document.querySelector('#szolgaltatas');
 
-    if (date.value == "" || steps.value == "" || steps.value == 0){
+    if (date.value == "" || bevetel.value == "" || bevetel.value == 0 ){
         showMessage('Nem adtál meg minden adatot!'); 
     }
     else
@@ -29,7 +34,7 @@ function addStepData(){
 
                 axios.patch(`${serverUrl}/steps/ID/eq/${updID}`, updData).then(()=>{
 
-                    alert('A lépésszám adatok módosultak!');
+                    alert('A bevétel/kiadás adatok módosultak!');
                 });
                 
             }
@@ -38,16 +43,21 @@ function addStepData(){
                 let newData = {
                     userID: loggedUser.ID, 	
                     date: date.value, 	
-                    steps: steps.value 	
+                    amount: bevetel.value,
+                    amount: kiadas.value,
+                    type: ruhazat.value,
+                    type: elelmiszer.value,
+                    type: szolgaltatas.value,	
                 }
             
-                axios.post(`${serverUrl}/steps`, newData).then(()=>{
-                    alert('A lépésszám adatok felvéve!');
+                axios.post(`${serverUrl}/items`, newData).then(()=>{
+                    alert('A bevétel/kiadás adatok felvéve!');
                 });
             }
 
-            steps.value = "";
+            amount.value = "";
             date.value = "";
+            type.value = "";
         });
     }
 

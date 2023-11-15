@@ -14,7 +14,7 @@ function addStepData(){
     }
     else
     {
-        axios.get(`${serverUrl}/steps/userID/eq/${loggedUser.ID}`).then(res =>{
+        axios.get(`${serverUrl}/items/userID/eq/${loggedUser.ID}`).then(res =>{
             let upd = false;
             let updID = -1;
      
@@ -32,7 +32,7 @@ function addStepData(){
                     steps: steps.value 	
                 }
 
-                axios.patch(`${serverUrl}/steps/ID/eq/${updID}`, updData).then(()=>{
+                axios.patch(`${serverUrl}/items/ID/eq/${updID}`, updData).then(()=>{
 
                     alert('A bevétel/kiadás adatok módosultak!');
                 });

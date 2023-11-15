@@ -1,0 +1,32 @@
+<h3>Regisztráció</h3>
+
+    <div class="alert alert-danger d-none" role="alert" id="alertBox">
+        <!-- ide jönnek a hibaüzenetek -->
+    </div>
+
+      
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="nameField" placeholder="">
+        <label for="nameField">Név</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="emailField" placeholder="">
+        <label for="emailField">E-mail cím</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="passwdField" placeholder="">
+        <label for="passwdField">Jelszó</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="confirmField" placeholder="">
+        <label for="confirmField">Jelszó megerősítése</label>
+    </div>
+<div class="btnhelye">
+  <button class="btn btn-outline-success" id="btnstyle" onclick="register()">Regisztráció</button>
+</div>
+  
+   <!-- controller -->
+   <script src="../Controllers/register.js"></script>

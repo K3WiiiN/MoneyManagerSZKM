@@ -15,7 +15,13 @@ body{
 header{
     color:  rgb(25, 135, 84);
     text-decoration:dotted;
+    text-align: center;
 }
+
+h3{
+    color:rgb(25, 135, 84); ;
+}
+
 
 footer{
     background-color: black;

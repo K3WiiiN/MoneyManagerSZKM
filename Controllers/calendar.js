@@ -1,20 +1,34 @@
 function getCalendar() {
   let events = [];
-
-  axios.get(`${serverUrl}/steps/userID/eq/${loggedUser.ID}`).then(res=>{
+ 
+  axios.get(`${serverUrl}/items/userID/eq/${loggedUser.ID}`).then(res=>{
     res.data.forEach(item => {
-
+      if (item.type == "Kiadás")
+      {
+        events.push(
+          {
+            title: item.amount,
+            start: item.date,
+            backgroundColor: "red",
+           
+          }
+        );
+        return;
+      }
+     
       events.push(
         {
-          title: item.steps,
+          title: item.amount,
           start: item.date,
+          backgroundColor: "green",
+         
         }
       );
       });
-
+ 
      
   });
-
+ 
   setTimeout(() => {
     var calendarEl = document.getElementById("calendar");
    
@@ -31,7 +45,7 @@ function getCalendar() {
       events: events,
       displayEventTime: false
     });
-
+ 
     calendar.render();
   }, 500);
 }

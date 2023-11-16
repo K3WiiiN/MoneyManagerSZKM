@@ -2,11 +2,11 @@ function getChart() {
     let labels = [];
     let datas = [];
 
-  axios.get(`${serverUrl}/steps/userID/eq/${loggedUser.ID}`).then((res) => {
+  axios.get(`${serverUrl}/items/userID/eq/${loggedUser.ID}`).then((res) => {
     res.data.sort((a,b) => a.date.localeCompare(b.date));
     res.data.forEach((item) => {
       labels.push(item.date.toString().split("T")[0]);
-      datas.push(item.steps);
+      datas.push(item.amount);
     });
 
    
@@ -21,7 +21,7 @@ function getChart() {
         labels: labels,
         datasets: [
           {
-            label: "Lépésszám:",
+            label: "Összeg:",
             data: datas,
             borderWidth: 3,
           },

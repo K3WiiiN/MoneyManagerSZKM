@@ -1,4 +1,4 @@
-function getChart() {
+function getBarChart() {
     let labels = [];
     let datas = [];
 
@@ -13,10 +13,10 @@ function getChart() {
   });
 
   setTimeout(() => {
-    const ctx = document.getElementById("myChart");
+    const ctx = document.getElementById("myBarChart");
 
     new Chart(ctx, {
-      type: "line",
+      type: "bar",
       data: {
         labels: labels,
         datasets: [
@@ -29,6 +29,7 @@ function getChart() {
           },
         ],
       },
+    
       options: {
         scales: {
           y: {
@@ -38,4 +39,5 @@ function getChart() {
       },
     });
   }, 500);
+
 }

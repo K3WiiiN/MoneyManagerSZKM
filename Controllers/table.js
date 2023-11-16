@@ -21,7 +21,20 @@ function getStepdatas(){
             td2.innerText = data.date.toString().split("T")[0];
             td3.innerText = data.type;
             td4.innerText = data.tag;
-            td5.innerText = data.amount;
+            if (data.type=="Kiadás")
+            {
+                td5.innerText ="-"+ data.amount
+                td5.classList.add("RED")
+                td3.classList.add("RED")
+            }
+            else
+            {
+                td5.innerText="+"+data.amount
+                td5.classList.add("GREEN")
+                td3.classList.add("GREEN")
+            }
+
+            
             
             tr.appendChild(td1);
             tr.appendChild(td2);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Okt 25. 11:33
+-- Létrehozás ideje: 2023. Nov 16. 12:53
 -- Kiszolgáló verziója: 10.4.6-MariaDB
 -- PHP verzió: 7.3.8
 
@@ -34,7 +34,7 @@ CREATE TABLE `items` (
   `date` date NOT NULL,
   `type` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
   `amount` int(11) NOT NULL,
-  `tag` int(11) NOT NULL
+  `tag` varchar(30) COLLATE utf8_hungarian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 -- --------------------------------------------------------
@@ -49,6 +49,13 @@ CREATE TABLE `users` (
   `email` varchar(100) COLLATE utf8_hungarian_ci NOT NULL,
   `passwd` varchar(40) COLLATE utf8_hungarian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `users`
+--
+
+INSERT INTO `users` (`ID`, `name`, `email`, `passwd`) VALUES
+(1, 'Szabó Kevin', 'szabokevin@gmail.com', 'Asd123');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -74,13 +81,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT a táblához `items`
 --
 ALTER TABLE `items`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT a táblához `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

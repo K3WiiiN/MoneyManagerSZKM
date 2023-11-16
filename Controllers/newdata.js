@@ -2,14 +2,11 @@
 
 function addStepData(){
     let date = document.querySelector('#dateField');
-    let bevetel = document.querySelector('#osszegbevetel');
-    let kiadas = document.querySelector('#osszegkiadas');
-    let valasszon = document.querySelector('#valasszon');
-    let ruhazat =document.querySelector('#ruhazat');
-    let elelmiszer = document.querySelector('#elelmiszer');
-    let szolgaltatas = document.querySelector('#szolgaltatas');
+    let tipus = document.querySelector('#tipus');
+    let osszeg = document.querySelector('#osszeg');
+    let tag = document.querySelector('#tag');
 
-    if (date.value == "" || bevetel.value == "" || bevetel.value == 0 ){
+    if (date.value == "" || osszeg.value == "" || osszeg.value == 0 || tipus.value == "" || tag.value == "" ){
         showMessage('Nem adtál meg minden adatot!'); 
     }
     else
@@ -29,7 +26,7 @@ function addStepData(){
             if (upd){
 
                 let updData = {
-                    steps: steps.value 	
+                    amount: osszeg.value,	
                 }
 
                 axios.patch(`${serverUrl}/items/ID/eq/${updID}`, updData).then(()=>{
@@ -39,15 +36,15 @@ function addStepData(){
                 
             }
             else
-            {
+            {   
+             
+
                 let newData = {
                     userID: loggedUser.ID, 	
                     date: date.value, 	
-                    amount: bevetel.value,
-                    amount: kiadas.value,
-                    type: ruhazat.value,
-                    type: elelmiszer.value,
-                    type: szolgaltatas.value,	
+                    amount: osszeg.value,
+                    type: tipus.value,
+                    tag: tag.value,
                 }
             
                 axios.post(`${serverUrl}/items`, newData).then(()=>{
@@ -55,9 +52,10 @@ function addStepData(){
                 });
             }
 
-            amount.value = "";
+            osszeg.value = "";
             date.value = "";
-            type.value = "";
+            tipus.value = "";
+            tag.value = "";
         });
     }
 

@@ -20,7 +20,7 @@ loggedUser = JSON.parse(sessionStorage.getItem('MoneyManagerUser'));
 if (loggedUser != null){
     loggedInMenu.classList.remove('d-none');
     loggedOutMenu.classList.add('d-none');
-    render('newdata');
+    render('chart');
 }else{
     loggedInMenu.classList.add('d-none');
     loggedOutMenu.classList.remove('d-none');

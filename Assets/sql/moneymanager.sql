@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Nov 16. 12:53
+-- Létrehozás ideje: 2023. Nov 17. 09:56
 -- Kiszolgáló verziója: 10.4.6-MariaDB
 -- PHP verzió: 7.3.8
 
@@ -51,13 +51,6 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
--- A tábla adatainak kiíratása `users`
---
-
-INSERT INTO `users` (`ID`, `name`, `email`, `passwd`) VALUES
-(1, 'Szabó Kevin', 'szabokevin@gmail.com', 'Asd123');
-
---
 -- Indexek a kiírt táblákhoz
 --
 
@@ -81,7 +74,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT a táblához `items`
 --
 ALTER TABLE `items`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT a táblához `users`

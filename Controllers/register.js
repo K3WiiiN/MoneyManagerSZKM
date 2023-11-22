@@ -36,7 +36,7 @@ function register() {
 }
 
 function isValidName(name) {
-    const nameRegex = /^[a-zA-Z\s]+$/;
+    const nameRegex = /^[a-zA-Z\u00C0-\u017F\s]+$/;
     return nameRegex.test(name);
 }
 
